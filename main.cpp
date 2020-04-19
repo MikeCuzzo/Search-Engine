@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//args = /home/student/Desktop/FinalPro/cs2341_data/ {word}
+//args = /home/student/Desktop/cs2341_data/ {word}
 
 int main(int argc, char** argv)
 {

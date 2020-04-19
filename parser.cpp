@@ -10,6 +10,11 @@ int Parser::run(char** argv)
     Porter2Stemmer::trim(toFind);
     Porter2Stemmer::stem(toFind);
 
+    //FOR DEMO
+    cout << "How many files would you like to index?" << endl;
+    int amtToParse;
+    cin >> amtToParse;
+
     //adds a slash at end of file path if needed
     if((filePath[filePath.length()-1]) != '/')
         filePath = filePath + "/";
@@ -57,7 +62,7 @@ int Parser::run(char** argv)
         currentFile.close();
         filesParsed++;
 
-        if(filesParsed==500)
+        if(filesParsed==amtToParse)
             break;
     }///end while directory still has files
     closedir(dir);
@@ -65,7 +70,7 @@ int Parser::run(char** argv)
 
     //FOR DEMO
     cout << "AVL Tree Total Nodes: " << words.getSize() << endl;
-    cout << "Total Indexed Articles: " << endl << endl;
+    cout << "Total Indexed Articles: " << filesParsed << endl << endl;
     cout << "Article Count that contain " << argv[2] << ": " << words.get(toFind).getIDs().size() << endl;
     cout << "Article File Names: " << endl;
     for(int i=0;i<words.get(toFind).getIDs().size();i++)
