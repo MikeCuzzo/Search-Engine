@@ -41,7 +41,7 @@ int Parser::run(char** argv)
         //used for adding IDs to word objs
         file = file.substr(0,file.find_first_of('.'));
 
-        if(!currentFile.is_open())
+        if(!currentFile.is_open() && file.size() > 2)
             cout << "Failed to open file" << endl;
 
         string opinion;

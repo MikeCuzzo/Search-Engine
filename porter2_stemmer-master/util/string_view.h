@@ -10,7 +10,8 @@
 #ifndef META_UTIL_STRING_VIEW_H_
 #define META_UTIL_STRING_VIEW_H_
 
-#include "porter2_stemmer-master/util/hash.h"
+//#include "porter2_stemmer-master/util/hash.h"
+#include "hash.h"
 
 #if META_HAS_EXPERIMENTAL_STRING_VIEW
 #include <experimental/string_view>

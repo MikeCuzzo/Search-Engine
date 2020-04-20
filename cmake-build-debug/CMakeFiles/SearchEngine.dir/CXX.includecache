@@ -14,10 +14,6 @@ fstream
 wordobject.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/wordobject.h
 
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/main.cpp
-parser.h
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.h
-
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.cpp
 parser.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.h
@@ -34,8 +30,6 @@ dirent.h
 algorithm
 -
 cstring
--
-bits/stdc++.h
 -
 vector
 -
@@ -54,16 +48,6 @@ stdexcept
 string
 -
 
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer.cpp
-algorithm
--
-utility
--
-unordered_map
--
-porter2_stemmer.h
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer.h
-
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer.h
 vector
 -
@@ -71,10 +55,6 @@ string
 -
 porter2_stemmer-master/util/string_view.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer-master/util/string_view.h
-
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/wordobject.cpp
-wordobject.h
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/wordobject.h
 
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/wordobject.h
 iostream
