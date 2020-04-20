@@ -1,0 +1,3 @@
+C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/CMakeFiles/SearchEngine.dir
+C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
