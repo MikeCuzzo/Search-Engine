@@ -25,4 +25,5 @@ foreach(file IN LISTS input01 input02 input03 input04)
 endforeach()
 
 set(CMAKE_CXX_STANDARD 17)
-add_executable(${EXE_NAME} main.cpp AVLTree.h parser.h parser.cpp porter2_stemmer.cpp porter2_stemmer.h wordobject.h wordobject.cpp)
+add_executable(${EXE_NAME} main.cpp AVLTree.h parser.h parser.cpp porter2_stemmer.cpp porter2_stemmer.h wordobject.h wordobject.cpp
+        HashTable.h QueryEngine.cpp QueryEngine.h ui.cpp ui.h DataStructures.h)

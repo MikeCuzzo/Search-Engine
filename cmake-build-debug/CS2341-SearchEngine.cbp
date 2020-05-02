@@ -83,6 +83,18 @@
 		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/AVLTree.h">
 			<Option target="SearchEngine"/>
 		</Unit>
+		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/DataStructures.h">
+			<Option target="SearchEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/HashTable.h">
+			<Option target="SearchEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.cpp">
+			<Option target="SearchEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.h">
+			<Option target="SearchEngine"/>
+		</Unit>
 		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/main.cpp">
 			<Option target="SearchEngine"/>
 		</Unit>
@@ -96,6 +108,12 @@
 			<Option target="SearchEngine"/>
 		</Unit>
 		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer.h">
+			<Option target="SearchEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/ui.cpp">
+			<Option target="SearchEngine"/>
+		</Unit>
+		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/ui.h">
 			<Option target="SearchEngine"/>
 		</Unit>
 		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/wordobject.cpp">

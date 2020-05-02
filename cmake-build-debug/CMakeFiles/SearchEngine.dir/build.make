@@ -108,12 +108,40 @@ CMakeFiles/SearchEngine.dir/wordobject.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SearchEngine.dir/wordobject.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\wordobject.cpp -o CMakeFiles\SearchEngine.dir\wordobject.cpp.s
 
+CMakeFiles/SearchEngine.dir/QueryEngine.cpp.obj: CMakeFiles/SearchEngine.dir/flags.make
+CMakeFiles/SearchEngine.dir/QueryEngine.cpp.obj: ../QueryEngine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SearchEngine.dir/QueryEngine.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SearchEngine.dir\QueryEngine.cpp.obj -c C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\QueryEngine.cpp
+
+CMakeFiles/SearchEngine.dir/QueryEngine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SearchEngine.dir/QueryEngine.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\QueryEngine.cpp > CMakeFiles\SearchEngine.dir\QueryEngine.cpp.i
+
+CMakeFiles/SearchEngine.dir/QueryEngine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SearchEngine.dir/QueryEngine.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\QueryEngine.cpp -o CMakeFiles\SearchEngine.dir\QueryEngine.cpp.s
+
+CMakeFiles/SearchEngine.dir/ui.cpp.obj: CMakeFiles/SearchEngine.dir/flags.make
+CMakeFiles/SearchEngine.dir/ui.cpp.obj: ../ui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SearchEngine.dir/ui.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SearchEngine.dir\ui.cpp.obj -c C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\ui.cpp
+
+CMakeFiles/SearchEngine.dir/ui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SearchEngine.dir/ui.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\ui.cpp > CMakeFiles\SearchEngine.dir\ui.cpp.i
+
+CMakeFiles/SearchEngine.dir/ui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SearchEngine.dir/ui.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\ui.cpp -o CMakeFiles\SearchEngine.dir\ui.cpp.s
+
 # Object files for target SearchEngine
 SearchEngine_OBJECTS = \
 "CMakeFiles/SearchEngine.dir/main.cpp.obj" \
 "CMakeFiles/SearchEngine.dir/parser.cpp.obj" \
 "CMakeFiles/SearchEngine.dir/porter2_stemmer.cpp.obj" \
-"CMakeFiles/SearchEngine.dir/wordobject.cpp.obj"
+"CMakeFiles/SearchEngine.dir/wordobject.cpp.obj" \
+"CMakeFiles/SearchEngine.dir/QueryEngine.cpp.obj" \
+"CMakeFiles/SearchEngine.dir/ui.cpp.obj"
 
 # External object files for target SearchEngine
 SearchEngine_EXTERNAL_OBJECTS =
@@ -122,11 +150,13 @@ SearchEngine.exe: CMakeFiles/SearchEngine.dir/main.cpp.obj
 SearchEngine.exe: CMakeFiles/SearchEngine.dir/parser.cpp.obj
 SearchEngine.exe: CMakeFiles/SearchEngine.dir/porter2_stemmer.cpp.obj
 SearchEngine.exe: CMakeFiles/SearchEngine.dir/wordobject.cpp.obj
+SearchEngine.exe: CMakeFiles/SearchEngine.dir/QueryEngine.cpp.obj
+SearchEngine.exe: CMakeFiles/SearchEngine.dir/ui.cpp.obj
 SearchEngine.exe: CMakeFiles/SearchEngine.dir/build.make
 SearchEngine.exe: CMakeFiles/SearchEngine.dir/linklibs.rsp
 SearchEngine.exe: CMakeFiles/SearchEngine.dir/objects1.rsp
 SearchEngine.exe: CMakeFiles/SearchEngine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable SearchEngine.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Mcuzz\OneDrive\Documents\GitHub\CS2341-SearchEngine-MikeCuzzo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SearchEngine.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SearchEngine.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

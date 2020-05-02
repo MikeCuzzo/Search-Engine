@@ -14,6 +14,7 @@ public:
     //CONSTRUCTORS
     WordObject();
     WordObject(string&);
+    WordObject(WordObject&);
     WordObject(string&, string&);
     WordObject(string&, vector<string>&);
     //FUNCTIONS
@@ -32,6 +33,8 @@ public:
     bool operator>(string&);
     bool operator==(WordObject&);
     bool operator==(string&);
+    bool operator!=(WordObject&);
+    bool operator!=(string&);
     WordObject& operator+(const WordObject&);
     friend ostream& operator<<(ostream&, WordObject&);
 private:

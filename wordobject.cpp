@@ -4,13 +4,21 @@ WordObject::WordObject()
 {
     word = "";
     numOfIDs = 0;
-}///end construcor
+}///end constructor
 
 WordObject::WordObject(string& wordToSet)
 {
     word = wordToSet;
     numOfIDs = 0;
-}///end construcor
+}///end copy constructor
+
+WordObject::WordObject(WordObject& rhs)
+{
+    word = rhs.word;
+    numOfIDs = rhs.numOfIDs;
+    idNums = rhs.idNums;
+    occurs = rhs.occurs;
+}///end copy constructor
 
 WordObject::WordObject(string& wordToSet, string& idNum)
 {
@@ -129,6 +137,22 @@ bool WordObject::operator==(string& rhs)
 
     return false;
 }///end == operator
+
+bool WordObject::operator!=(WordObject& rhs)
+{
+    if(word == rhs.word)
+        return false;
+
+    return true;
+}//end operator!=
+
+bool WordObject::operator!=(string& rhs)
+{
+    if(word == rhs)
+        return false;
+
+    return true;
+}//end operator!=
 
 WordObject& WordObject::operator+(const WordObject& rhs)
 {

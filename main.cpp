@@ -1,12 +1,13 @@
-#include "parser.h"
+#include <iostream>
+#include "ui.h"
 
 using namespace std;
 
-//args = /home/student/Desktop/cs2341_data/ {word}
+//argv[1] = filepath
 
 int main(int argc, char** argv)
 {
-    Parser p;
-    p.run(argv);
+    UI ui;
+    ui.run(argv[1]);
     return 0;
 }///end main

@@ -1,15 +1,7 @@
 #include "parser.h"
 
-int Parser::run(char** argv)
+int Parser::run(string filePath)
 {
-    string filePath = argv[1];
-
-    //handles the CLA word to find
-    string toFind = argv[2];
-    transform(toFind.begin(),toFind.end(),toFind.begin(),::tolower);
-    Porter2Stemmer::trim(toFind);
-    Porter2Stemmer::stem(toFind);
-
     //FOR DEMO
     cout << "How many files would you like to index?" << endl;
     int amtToParse;
@@ -67,15 +59,6 @@ int Parser::run(char** argv)
     }///end while directory still has files
     closedir(dir);
     cout << "Parsing Complete" << endl << endl;
-
-    //FOR DEMO
-    cout << "AVL Tree Total Nodes: " << words.getSize() << endl;
-    cout << "Total Indexed Articles: " << filesParsed << endl << endl;
-    cout << "Article Count that contain " << argv[2] << ": " << words.get(toFind).getIDs().size() << endl;
-    cout << "Article File Names: " << endl;
-    for(int i=0;i<words.get(toFind).getIDs().size();i++)
-        cout << words.get(toFind).getIDs()[i] << ".json" << endl;
-
     return 0;
 }///end run
 
@@ -133,23 +116,36 @@ void Parser::stemWords(string paragraph)
     }///end else
 }///end stemWords
 
+void Parser::setAVL()
+{
+    words = new AVLTree<WordObject>;
+}///end setAVL
+
+void Parser::setHash()
+{
+    words = new HashTable<WordObject>;
+}///end setHash
+
 void Parser::insert(string word)
 {
-    WordObject wordObj(word,file);
-    //tests if word is already in tree
-    //if not it gets added
-    if(words.contains(wordObj) == true)
-    {
-        //if the word has been already found in the file
-        //the frequency counter will incriment
-        //if not, the file will be added to the list
-        if(words.get(wordObj).containsID(file) == true)
-            words.get(wordObj).incrimentOccurs(file);
+        WordObject wordObj(word,file);
+        //tests if word is already in tree
+        //if not it gets added
+        if(words->contains(wordObj) == true)
+        {
+            //if the word has been already found in the file
+            //the frequency counter will incriment
+            //if not, the file will be added to the list
+            if(words->get(wordObj).containsID(file) == true)
+                words->get(wordObj).incrimentOccurs(file);
+            else
+                words->get(wordObj).addID(file);
+        }///end if contains word
         else
-            words.get(wordObj).addID(file);
-    }///end if contains word
-    else
-        words.insert(wordObj);
+            words->insert(wordObj);
 }///end insert
 
-
+DataStructures<WordObject>* Parser::getDS()
+{
+    return words;
+}//end getDS

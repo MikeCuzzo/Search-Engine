@@ -10,6 +10,7 @@
 //#include <bits/stdc++.h>
 #include <vector>
 #include "AVLTree.h"
+#include "HashTable.h"
 
 using namespace std;
 
@@ -74,21 +75,22 @@ public:
                                 "yourself", "yourselves", "you've", "zero"};
 
     //FUNCTIONS
-    int run(char** argv);
+    int run(string filePath);
     void fixAndAddWords(string paragraph);
-    string removeN(string paragraph);
     string removeMiscChars(string paragraph);
     void stemWords(string paragraph);
     void setAVL();
     void setHash();
     void insert(string word);
+    DataStructures<WordObject>* getDS();
+
 
 private:
     string filePath;
     string file;
-    AVLTree<WordObject> words;
+    DataStructures<WordObject>* words;
     int filesParsed = 0;
-    bool isAVL = false;
+    int numKeys = 0;
 };///end parser
 
 #endif // PARSER_H

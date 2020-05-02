@@ -1,14 +1,16 @@
 #ifndef AVLTREE_H
 #define AVLTREE_H
 
+#include "DataStructures.h"
 #include <stdexcept>
 #include <fstream>
+#include "HashTable.h"
 #include "wordobject.h"
 
 using namespace std;
 
 template <class T>
-class AVLTree
+class AVLTree : public DataStructures<T>
 {
 private:
     //private class for the nodes of the AVLTree
