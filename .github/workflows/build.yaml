@@ -3,7 +3,7 @@ name: CS2341-SearchEngine
 on: [push]
 
 env:
-  EXE_NAME: SerachEngine
+  EXE_NAME: SearchEngine
   ### ***** Students!  Put the name of the input files and output files here.
   ###   List them in the order that they need to appear in Argv param of main.
   ###   Output Files will follow input files
