@@ -19,6 +19,7 @@ public:
     void searchSingle();
     void searchAnd();
     void searchOr();
+    void searchAuthor();
     void print(vector<string> toPrint);
     int printFile(string file);
 private:
@@ -26,9 +27,13 @@ private:
     vector<string> notWords;
     vector<string> andWords;
     vector<string> orWords;
+    string author;
     string singleWord;
     DataStructures<WordObject>* words;
     char* argv;
+    fstream currFile;
+    string fPath = argv;
+    const string quote = "\"";
 
 };///end class
 

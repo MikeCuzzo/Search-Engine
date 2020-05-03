@@ -41,12 +41,15 @@ int Parser::run(string filePath)
         string opinion;
         while(currentFile.good())
         {
-            //ignore everything until "text": " is reached
+            //ignore everything until "text": " or "last: " is reached
             getline(currentFile,opinion);
 
             //removes spaces in begining of string
             if(opinion.size()>2)
                 opinion = opinion.substr(opinion.find_first_not_of(" "),opinion.size());
+
+            if(opinion.substr(1,4) == "last")
+                currAuthor = opinion.substr(9,opinion.size()-11);
 
             if(opinion.size() > 20)
                 if(opinion.substr(1,4) == "text")
@@ -60,9 +63,10 @@ int Parser::run(string filePath)
             break;
     }///end while directory still has files
     closedir(dir);
+    //outputs stats
     cout << "Parsing Complete" << endl << endl;
     cout << filesParsed << " files parsed" << endl;
-    cout << "Average number of words per file: " << words->getSize()/filesParsed << endl;
+    cout << "Average number of words per file: " << wordsAdded/filesParsed << endl;
     cout << words->getSize() << " total words indexed" << endl;
     return 0;
 }///end run
@@ -109,7 +113,7 @@ void Parser::stemWords(string paragraph)
             if((binary_search(stopWords.begin(),stopWords.end(),temp)) || temp.length() < 3){}
             else
             {
-                //trims words
+                //trims and adds words
                 Porter2Stemmer::trim(temp);
                 Porter2Stemmer::stem(temp);
                 insert(temp);
@@ -133,6 +137,7 @@ void Parser::setHash()
 
 void Parser::insert(string word)
 {
+    wordsAdded++;
     WordObject wordObj(word,file);
     //tests if word is already in tree
     //if not it gets added
@@ -148,6 +153,10 @@ void Parser::insert(string word)
     }///end if contains word
     else
         words->insert(wordObj);
+
+    //adds author
+    if(!words->get(wordObj).containsAuthor(currAuthor))
+        words->get(wordObj).addAuthor(currAuthor);
 }///end insert
 
 DataStructures<WordObject>* Parser::getDS()

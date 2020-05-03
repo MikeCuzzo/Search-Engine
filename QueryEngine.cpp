@@ -54,8 +54,10 @@ void QueryEngine::run(string query,char* CLAPath)
     query = query.substr(0,foundAnd-1);
 
     //search for OR
+    //exists to prevent mixing OR with AUTHOR
+    size_t foundAuthor = query.find("AUTHOR");
     size_t foundOr = query.find("OR");
-    if(foundOr != string::npos)
+    if(foundOr != string::npos && foundAuthor == string::npos)
     {
         string orList = query.substr(foundOr+3,query.length());
         for(int i=0;i<orList.length();i++)
@@ -77,6 +79,18 @@ void QueryEngine::run(string query,char* CLAPath)
     }///end if found OR
     query = query.substr(0,foundOr-1);
 
+    //search for AUTHOR
+    if(foundAuthor != string::npos)
+    {
+        string authorList = query.substr(foundAnd+7,query.length());
+        for(int i=0;i<authorList.length();i++)
+        {
+            if(authorList.find_last_of('R') != string::npos)
+                author = authorList.substr(authorList.find_last_of('R')+1,authorList.size());
+        }///end for
+    }///end if found AND
+    query = query.substr(0,foundAnd-1);
+
     //stores leftover single word
     singleWord = query;
     transform(singleWord.begin(),singleWord.end(),singleWord.begin(),::tolower);
@@ -95,6 +109,9 @@ void QueryEngine::run(string query,char* CLAPath)
     //searches OR words
     if(!orWords.empty())
         searchOr();
+
+    if(author.length()>0)
+        searchAuthor();
 }///end run
 
 void QueryEngine::setDS(DataStructures<WordObject>* x)
@@ -104,7 +121,7 @@ void QueryEngine::setDS(DataStructures<WordObject>* x)
 
 void QueryEngine::searchSingle()
 {
-    //retrives wordobject from AVL
+    //retrives wordobject from datastructur
     //and stores its data
     WordObject singleWordObj(singleWord);
     if(words->contains(singleWordObj))
@@ -142,9 +159,7 @@ void QueryEngine::searchSingle()
         print(files);
     }///end if word exists
     else
-    {
         cout << "No results found" << endl;
-    }//end else
 }///end searchSingle
 
 void QueryEngine::searchAnd()
@@ -275,8 +290,54 @@ void QueryEngine::searchOr()
     print(files);
 }///end searchOr
 
+void QueryEngine::searchAuthor()
+{
+    //retrives wordobject from datastructure
+    //and stores its data
+    WordObject singleWordObj(singleWord);
+    if((words->contains(singleWordObj)) && words->get(singleWordObj).containsAuthor(author))
+    {
+        singleWordObj = words->get(singleWordObj);
+        vector<string> files = singleWordObj.getIDs();
+        vector<int> freq = singleWordObj.getOccurs();
+
+        //selection sorts by frequencey
+        int minIndex;
+
+        // One by one move boundary of unsorted subarray
+        for(int i=0;i<freq.size()-1;i++)
+        {
+            // Find the minimum element in unsorted array
+            minIndex = i;
+            for(int j=i+1;j<freq.size();j++)
+                if (freq[j] < freq[minIndex])
+                    minIndex = j;
+
+            // Swap the found minimum element with the first element
+            int tempInt = freq[minIndex];
+            string tempStr = files[minIndex];
+
+            freq[minIndex] = freq[i];
+            files[minIndex] = files[i];
+
+            freq[i] = tempInt;
+            files[i] = tempStr;
+        }///end for
+
+        //reverses array and outputs it
+        reverse(files.begin(),files.end());
+
+        print(files);
+    }///end if word exists
+
+    else
+        cout << "No results found" << endl;
+}//end searchAuthor
+
 void QueryEngine::print(vector<string> toPrint)
 {
+    fPath = argv;
+
     //filters NOT words
     //imports notWord files
     vector<string> notFiles;
@@ -299,15 +360,39 @@ void QueryEngine::print(vector<string> toPrint)
         }///end for j
     }///end for i
 
-    //prints words
+    //prints document titles
     if(toPrint.size() == 0)
         cout << "No results found" << endl;
     else
         {
         cout << endl << "Search results: " << endl;
-        for (int i = 0; i < toPrint.size(); i++) {
-            cout << i + 1 << ") " << toPrint[i] << ".json" << endl;
-            if (i == 14)
+        for(int i = 0; i < toPrint.size(); i++)
+        {
+            currFile.open(fPath + "/" + toPrint[i] + ".json");
+            if(!currFile.is_open())
+                cout << "Couldn't open file" << endl;
+
+            //ignore everything until "text": " is reached
+            bool fileOpen = true;
+            while(fileOpen)
+            {
+                string currLine;
+                getline(currFile,currLine);
+
+                if(currLine.size()>3)
+                {
+                    currLine = currLine.substr(currLine.find_first_not_of(" "), currLine.find_last_of(","));
+
+                    if(currLine.substr(1,5) == "title")
+                    {
+                        cout << i+1 << ")" << currLine.substr(8, currLine.size()-9) << endl;
+                        fileOpen = false;
+                    }//end if
+                }//end if
+            }//end while
+            currFile.close();
+
+            if(i == 14)
                 break;
         }///end for
     }//end else
@@ -324,16 +409,13 @@ void QueryEngine::print(vector<string> toPrint)
         else
         {
             int userNum = stoi(userIn);
-            printFile(toPrint[userNum]);
+            printFile(toPrint[userNum-1]);
         }//end else
     }//end while
 }///end print
 
 int QueryEngine::printFile(string file)
 {
-    fstream currFile;
-    string fPath = argv;
-
     currFile.open(fPath + "/" + file + ".json");
     if(!currFile.is_open())
     {
@@ -342,10 +424,10 @@ int QueryEngine::printFile(string file)
     }//end if
 
     int numPgs = 0;
-    string currLine;
     while(true)
     {
         //ignore everything until "text": " is reached
+        string currLine;
         getline(currFile,currLine);
 
         //removes spaces in begining of string
@@ -355,7 +437,7 @@ int QueryEngine::printFile(string file)
         if(currLine.size() > 20)
             if(currLine.substr(1,4) == "text")
             {
-                cout << currLine.substr(7, currLine.size()) << endl << endl;
+                cout << currLine.substr(7, currLine.size()-8) << endl << endl;
                 numPgs++;
                 if(numPgs >= 3)
                     break;

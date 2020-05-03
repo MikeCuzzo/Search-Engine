@@ -81,6 +81,27 @@ vector<int>& WordObject::getOccurs()
     return occurs;
 }///end getOccurs
 
+void WordObject::addAuthor(string& a)
+{
+    authors.push_back(a);
+}//end addAuthor
+
+vector<string> WordObject::getAuthors()
+{
+    return authors;
+}//end getAuthors
+
+bool WordObject::containsAuthor(string a)
+{
+    for(int i=0;i<authors.size();i++)
+    {
+        if(authors[i] == a)
+            return true;
+    }//end for
+
+    return false;
+}//end contansAuthor
+
 WordObject& WordObject::operator=(const WordObject& rhs)
 {
     word = rhs.word;

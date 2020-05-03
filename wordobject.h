@@ -25,6 +25,9 @@ public:
     bool containsID(string&);
     void incrimentOccurs(string&);
     vector<int>& getOccurs();
+    void addAuthor(string&);
+    vector<string> getAuthors();
+    bool containsAuthor(string);
     //OPERATORS
     WordObject& operator=(const WordObject&);
     bool operator<(const WordObject&) const;
@@ -42,6 +45,7 @@ private:
     vector<string> idNums;
     vector<int> occurs;
     int numOfIDs;
+    vector<string> authors;
 };///end class
 
 #endif // WORDOBJECT_H

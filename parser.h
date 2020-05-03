@@ -90,8 +90,8 @@ private:
     string file;
     DataStructures<WordObject>* words;
     int filesParsed = 0;
-    int numKeys = 0;
-    int wordsInFile = 0;
+    int wordsAdded = 0;
+    string currAuthor;
 };///end parser
 
 #endif // PARSER_H

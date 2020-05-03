@@ -36,29 +36,25 @@ fstream
 iomanip
 -
 
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.cpp
-parser.h
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.h
+C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.cpp
+QueryEngine.h
+C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.h
 
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.h
-porter2_stemmer.h
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer.h
-string
--
-fstream
--
-dirent.h
--
-algorithm
--
-cstring
+C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.h
+iostream
 -
 vector
 -
+fstream
+-
+porter2_stemmer.h
+C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer.h
+DataStructures.h
+C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/DataStructures.h
 AVLTree.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/AVLTree.h
-HashTable.h
-C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/HashTable.h
+wordobject.h
+C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/wordobject.h
 
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer-master/util/hash.h
 array
