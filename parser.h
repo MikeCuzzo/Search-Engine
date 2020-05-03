@@ -91,6 +91,7 @@ private:
     DataStructures<WordObject>* words;
     int filesParsed = 0;
     int numKeys = 0;
+    int wordsInFile = 0;
 };///end parser
 
 #endif // PARSER_H

@@ -2,6 +2,8 @@
 
 void UI::run(char* CLAPath)
 {
+    argv = CLAPath;
+
     //runs ui
     bool running = true;
     while(running)
@@ -74,11 +76,12 @@ void UI::interactiveMode(string CLAPath)
 
 void UI::takeQuery(DataStructures<WordObject>* x)
 {
-    //flushes the stream
-    cin.ignore(numeric_limits<streamsize>::max(),'\n');
     //loops so the files do not need to be reparsed
     while(true)
     {
+        //flushes the stream
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
         cout << "Please enter a search query (enter '@' to exit): " << endl;
         string query;
         getline(cin,query);
@@ -91,6 +94,6 @@ void UI::takeQuery(DataStructures<WordObject>* x)
 
         QueryEngine q;
         q.setDS(x);
-        q.run(query);
+        q.run(query,argv);
     }///end while
 }///end takeQuery

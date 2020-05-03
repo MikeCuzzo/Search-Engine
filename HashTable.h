@@ -107,9 +107,15 @@ public:
         return false;
     }//end contains
 
+    int getSize()
+    {
+        return size;
+    }//end getSize
+
     void insert(WordObject w)
     {
         insert(w,w.getIDs().back());
+        size++;
     }//end insert
 
     void insert(T& setKey, string& setValue)

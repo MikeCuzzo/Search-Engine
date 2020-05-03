@@ -1,7 +1,8 @@
 #include "QueryEngine.h"
 
-void QueryEngine::run(string query)
+void QueryEngine::run(string query,char* CLAPath)
 {
+    argv = CLAPath;
     origQuery = query;
 
     //search for NOT
@@ -140,6 +141,10 @@ void QueryEngine::searchSingle()
 
         print(files);
     }///end if word exists
+    else
+    {
+        cout << "No results found" << endl;
+    }//end else
 }///end searchSingle
 
 void QueryEngine::searchAnd()
@@ -295,12 +300,67 @@ void QueryEngine::print(vector<string> toPrint)
     }///end for i
 
     //prints words
-    cout << endl << "Search results: " << endl;
-    for(int i=0;i<toPrint.size();i++)
+    if(toPrint.size() == 0)
+        cout << "No results found" << endl;
+    else
+        {
+        cout << endl << "Search results: " << endl;
+        for (int i = 0; i < toPrint.size(); i++) {
+            cout << i + 1 << ") " << toPrint[i] << ".json" << endl;
+            if (i == 14)
+                break;
+        }///end for
+    }//end else
+
+    string userIn;
+    while(true)
     {
-        cout << i+1 << ") " << toPrint[i] << ".json" << endl;
-        if(i==14)
+        cout << endl << "Which file would you like to look into? (enter '0' to go back)" << endl;
+        cin >> userIn;
+        if(userIn == "0")
             break;
-    }///end for
-    cout << endl;
+        if(stoi(userIn) < 0 || stoi(userIn) > 15)
+            cout << "Not a valid input" << endl;
+        else
+        {
+            int userNum = stoi(userIn);
+            printFile(toPrint[userNum]);
+        }//end else
+    }//end while
 }///end print
+
+int QueryEngine::printFile(string file)
+{
+    fstream currFile;
+    string fPath = argv;
+
+    currFile.open(fPath + "/" + file + ".json");
+    if(!currFile.is_open())
+    {
+        cout << "Couldn't open file" << endl;
+        return -1;
+    }//end if
+
+    int numPgs = 0;
+    string currLine;
+    while(true)
+    {
+        //ignore everything until "text": " is reached
+        getline(currFile,currLine);
+
+        //removes spaces in begining of string
+        if(currLine.size()>2)
+            currLine = currLine.substr(currLine.find_first_not_of(" "),currLine.size());
+
+        if(currLine.size() > 20)
+            if(currLine.substr(1,4) == "text")
+            {
+                cout << currLine.substr(7, currLine.size()) << endl << endl;
+                numPgs++;
+                if(numPgs >= 3)
+                    break;
+            }//end if
+
+    }///end while file still contains data
+    currFile.close();
+}//end printFile

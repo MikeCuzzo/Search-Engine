@@ -2,10 +2,12 @@
 
 int Parser::run(string filePath)
 {
-    //FOR DEMO
-    cout << "How many files would you like to index?" << endl;
     int amtToParse;
-    cin >> amtToParse;
+    while(!(amtToParse > 0 && amtToParse < 11997))
+    {
+        cout << "How many files would you like to index? (max is 11,996)" << endl;
+        cin >> amtToParse;
+    }//end while
 
     //adds a slash at end of file path if needed
     if((filePath[filePath.length()-1]) != '/')
@@ -46,7 +48,7 @@ int Parser::run(string filePath)
             if(opinion.size()>2)
                 opinion = opinion.substr(opinion.find_first_not_of(" "),opinion.size());
 
-            if(opinion.size() > 2)
+            if(opinion.size() > 20)
                 if(opinion.substr(1,4) == "text")
                     fixAndAddWords(opinion.substr(7,opinion.size()));
 
@@ -59,6 +61,9 @@ int Parser::run(string filePath)
     }///end while directory still has files
     closedir(dir);
     cout << "Parsing Complete" << endl << endl;
+    cout << filesParsed << " files parsed" << endl;
+    cout << "Average number of words per file: " << words->getSize()/filesParsed << endl;
+    cout << words->getSize() << " total words indexed" << endl;
     return 0;
 }///end run
 

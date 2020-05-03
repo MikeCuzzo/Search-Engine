@@ -17,6 +17,7 @@ public:
     void maintenenceMode();
     void interactiveMode(string CLAPath);
     void takeQuery(DataStructures<WordObject>* x);
+    char * argv;
 };///end class
 
 #endif // UI_H

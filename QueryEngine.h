@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "porter2_stemmer.h"
 #include "DataStructures.h"
 #include "AVLTree.h"
@@ -13,12 +14,13 @@ using namespace std;
 class QueryEngine
 {
 public:
-    void run(string query);
+    void run(string query,char* CLAPath);
     void setDS(DataStructures<WordObject>* x);
     void searchSingle();
     void searchAnd();
     void searchOr();
     void print(vector<string> toPrint);
+    int printFile(string file);
 private:
     string origQuery;
     vector<string> notWords;
@@ -26,6 +28,7 @@ private:
     vector<string> orWords;
     string singleWord;
     DataStructures<WordObject>* words;
+    char* argv;
 
 };///end class
 
