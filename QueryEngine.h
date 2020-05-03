@@ -25,8 +25,7 @@ private:
     vector<string> andWords;
     vector<string> orWords;
     string singleWord;
-    //DataStructure<WordObject>* words;
-    DataStructures<WordObject>* words = new AVLTree<WordObject>;
+    DataStructures<WordObject>* words;
 
 };///end class
 

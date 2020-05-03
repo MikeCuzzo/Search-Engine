@@ -87,6 +87,7 @@ WordObject& WordObject::operator=(const WordObject& rhs)
     numOfIDs = rhs.numOfIDs;
     idNums = rhs.idNums;
     occurs = rhs.occurs;
+
     return *this;
 }///end = operator
 

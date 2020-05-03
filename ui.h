@@ -5,7 +5,7 @@
 #include <string>
 #include <iomanip>
 #include "parser.h"
-#include "queryengine.h"
+#include "QueryEngine.h"
 #include "DataStructures.h"
 
 using namespace std;

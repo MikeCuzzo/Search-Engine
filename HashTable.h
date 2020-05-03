@@ -3,7 +3,7 @@
 #include "AVLTree.h"
 #include "DataStructures.h"
 #include <functional>
-#include <array>
+#include <vector>
 
 using namespace std;
 
@@ -15,31 +15,19 @@ class HashTable : public DataStructures<T>
     class HashNode
             {
     public:
-        HashNode()
-        {
-            keys = new K[5];
-            values = new V[5];
-            size = 0;
-        }//end constructor
+        HashNode() {}///end constructor
 
         HashNode(const K &key, const V &value)
         {
-            keys = new K[5];
-            keys[0] = key;
-            values = new V[5];
-            values[0] = value;
-            size = 1;
+            keys.push_back(key);
+            keys.push_back(value);
         }//end copy constructor
 
-        ~HashNode()
-        {
-            delete[] keys;
-            delete[] values;
-        }//end destructor
+        ~HashNode() {}///end destructor
 
         V& getValue(K key)
         {
-            for(int i=0;i<size;i++)
+            for(int i=0;i<keys.size();i++)
             {
                 if(keys[i] == key)
                     return values[i];
@@ -47,19 +35,19 @@ class HashTable : public DataStructures<T>
             throw underflow_error("not in here");
         }//end getValue
 
-        V*& getValues()
+        vector<V>& getValues()
         {
             return values;
         }//end getValues
 
-        K*& getKeys()
+        vector<K>& getKeys()
         {
             return keys;
         }//end getKeys
 
         K& getKey(K key)
         {
-            for(int i=0;i<size;i++)
+            for(int i=0;i<keys.size();i++)
             {
                 if(keys[i] == key)
                     return keys[i];
@@ -69,28 +57,27 @@ class HashTable : public DataStructures<T>
 
         int getSize()
         {
-            return size;
+            return keys.size();
         }//end getSize
 
         bool addValue(K key, V value)
         {
-            if(size>=4)
+            if(keys.size()>=4)
                 return false;
 
-            keys[size] = key;
-            values[size] = value;
-            size++;
+            keys.push_back(key);
+            values.push_back(value);
             return true;
         }//end addValue
 
         bool room()
         {
-            return size<4;
+            return keys.size()<4;
         }//end room
 
         bool contains(K key)
         {
-            for(int i=0;i<size;i++)
+            for(int i=0;i<keys.size();i++)
             {
                 if(keys[i] == key)
                     return true;
@@ -100,9 +87,8 @@ class HashTable : public DataStructures<T>
 
     private:
         // key-value pair
-        K* keys;
-        V* values;
-        int size;
+        vector<K> keys;
+        vector<V> values;
     };//end HashNode class
 
 private:
@@ -181,8 +167,8 @@ public:
 
         for(int i = 0; i < capacity; i++)
         {
-            string* vals = data[i].getValues();
-            T* keys = data[i].getKeys();
+            vector<string> vals = data[i].getValues();
+            vector<T> keys = data[i].getKeys();
             for(int j=0;j<data[i].getSize();j++)
             {
                 int hash = std::hash<string>().operator()(keys[j].getWord());

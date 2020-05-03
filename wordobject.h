@@ -15,8 +15,8 @@ public:
     WordObject();
     WordObject(string&);
     WordObject(WordObject&);
-    WordObject(string&, string&);
-    WordObject(string&, vector<string>&);
+    WordObject(string&,string&);
+    WordObject(string&,vector<string>&);
     //FUNCTIONS
     void setWord(string&);
     string& getWord();

@@ -128,24 +128,24 @@ void Parser::setHash()
 
 void Parser::insert(string word)
 {
-        WordObject wordObj(word,file);
-        //tests if word is already in tree
-        //if not it gets added
-        if(words->contains(wordObj) == true)
-        {
-            //if the word has been already found in the file
-            //the frequency counter will incriment
-            //if not, the file will be added to the list
-            if(words->get(wordObj).containsID(file) == true)
-                words->get(wordObj).incrimentOccurs(file);
-            else
-                words->get(wordObj).addID(file);
-        }///end if contains word
+    WordObject wordObj(word,file);
+    //tests if word is already in tree
+    //if not it gets added
+    if(words->contains(wordObj) == true)
+    {
+        //if the word has been already found in the file
+        //the frequency counter will incriment
+        //if not, the file will be added to the list
+        if(words->get(wordObj).containsID(file) == true)
+            words->get(wordObj).incrimentOccurs(file);
         else
-            words->insert(wordObj);
+            words->get(wordObj).addID(file);
+    }///end if contains word
+    else
+        words->insert(wordObj);
 }///end insert
 
 DataStructures<WordObject>* Parser::getDS()
 {
     return words;
-}//end getDS
+}///end getDS

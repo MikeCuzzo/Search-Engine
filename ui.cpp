@@ -12,14 +12,14 @@ void UI::run(char* CLAPath)
         cin >> setw(1) >> input;
         switch(input)
         {
-            case 'a':
-                maintenenceMode(); break;
-            case 'b':
-                interactiveMode(CLAPath); break;
-            case 'c':
-                running = false; break;
-            default:
-                cout << "\nNot a valid input, please select from the menu" << endl; break;
+        case 'a':
+            maintenenceMode(); break;
+        case 'b':
+            interactiveMode(CLAPath); break;
+        case 'c':
+            running = false; break;
+        default:
+            cout << "\nNot a valid input, please select from the menu" << endl; break;
         }///end switch
     }///end while running
     cout << "\nProgram terminated. Have a great day!" << endl;
@@ -47,28 +47,28 @@ void UI::interactiveMode(string CLAPath)
     cin >> setw(1) >> usrChoice;
     switch(usrChoice)
     {
-        case 'a':
-        {
-            //parse data set in the CLA
-            Parser parser;
-            parser.setAVL();
-            parser.run(CLAPath);
-            takeQuery(parser.getDS());
-            break;
-        }///end case a
-        case 'b':
-        {
-            //parse data set in the CLA
-            Parser parser;
-            parser.setHash();
-            parser.run(CLAPath);
-            takeQuery(parser.getDS());
-            break;
-        }///end case b
-        case 'c':
-            cout << endl; break;
-        default:
-            cout << "\nNo valid choice selected" << endl; break;
+    case 'a':
+    {
+        //parse data set in the CLA
+        Parser parser;
+        parser.setAVL();
+        parser.run(CLAPath);
+        takeQuery(parser.getDS());
+        break;
+    }///end case a
+    case 'b':
+    {
+        //parse data set in the CLA
+        Parser parser;
+        parser.setHash();
+        parser.run(CLAPath);
+        takeQuery(parser.getDS());
+        break;
+    }///end case b
+    case 'c':
+        cout << endl; break;
+    default:
+        cout << "\nNo valid choice selected" << endl; break;
     }///end switch
 }///end interactiveMode
 

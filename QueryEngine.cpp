@@ -1,4 +1,4 @@
-#include "queryengine.h"
+#include "QueryEngine.h"
 
 void QueryEngine::run(string query)
 {
@@ -105,10 +105,10 @@ void QueryEngine::searchSingle()
 {
     //retrives wordobject from AVL
     //and stores its data
-    if(words->contains(singleWord))
+    WordObject singleWordObj(singleWord);
+    if(words->contains(singleWordObj))
     {
-        WordObject singleWordObj(singleWord);
-        singleWordObj = words->get(singleWord);
+        singleWordObj = words->get(singleWordObj);
         vector<string> files = singleWordObj.getIDs();
         vector<int> freq = singleWordObj.getOccurs();
 
