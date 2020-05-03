@@ -2,8 +2,11 @@
 #define HASHTABLE_H
 #include "AVLTree.h"
 #include "DataStructures.h"
-#include <functional>
 #include <vector>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
 
 using namespace std;
 
@@ -11,178 +14,329 @@ template<class T>
 class HashTable : public DataStructures<T>
 {
     //HASHNODE CLASS
-    template <typename K, typename V>
+    template <class K, class string>
     class HashNode
             {
     public:
-        HashNode() {}///end constructor
+        template <class U> friend class HashTable;
+       HashNode(K& setKey, string& setValue)
+       {
+            key = setKey;
+            values.push_back(setValue);
+            next = nullptr;
+       }//end constructor
 
-        HashNode(const K &key, const V &value)
+        HashNode(K& setKey, vector<string>& setVector)
         {
-            keys.push_back(key);
-            keys.push_back(value);
-        }//end copy constructor
-
-        ~HashNode() {}///end destructor
-
-        V& getValue(K key)
-        {
-            for(int i=0;i<keys.size();i++)
-            {
-                if(keys[i] == key)
-                    return values[i];
-            }//end for
-            throw underflow_error("not in here");
-        }//end getValue
-
-        vector<V>& getValues()
-        {
-            return values;
-        }//end getValues
-
-        vector<K>& getKeys()
-        {
-            return keys;
-        }//end getKeys
-
-        K& getKey(K key)
-        {
-            for(int i=0;i<keys.size();i++)
-            {
-                if(keys[i] == key)
-                    return keys[i];
-            }//end for
-            throw underflow_error("not in here");
-        }//end getValue
-
-        int getSize()
-        {
-            return keys.size();
-        }//end getSize
-
-        bool addValue(K key, V value)
-        {
-            if(keys.size()>=4)
-                return false;
-
-            keys.push_back(key);
-            values.push_back(value);
-            return true;
-        }//end addValue
-
-        bool room()
-        {
-            return keys.size()<4;
-        }//end room
-
-        bool contains(K key)
-        {
-            for(int i=0;i<keys.size();i++)
-            {
-                if(keys[i] == key)
-                    return true;
-            }//end for
-            return false;
-        }//end contains
+            key = setKey;
+            values = setVector;
+            next = nullptr;
+        }//end constructor
 
     private:
-        // key-value pair
-        vector<K> keys;
-        vector<V> values;
-    };//end HashNode class
+        K key;
+        vector<string> values;
+        HashNode* next;
+    };//end hashnode class
 
-private:
-    HashNode<T,string>* data;
-    int currSize;
-    int capacity;
 public:
+    template <class U, class Y> friend class HashNode;
+    void print()
+    {
+        if (table == nullptr)
+            cout << "Empty Table" << endl;
+        else
+            cout << "stuff in table" << endl;
+    }//end print
+
     HashTable()
     {
-        data = new HashNode<T,string>[10000];
-        capacity = 10000;
-        currSize = 0;
-        for(int i = 0; i<capacity; i++)
-            data[i] = HashNode<T,string>();
+        capacity = 5000; //choose default table size
+        size = 0;
+        table = new HashNode<T,string>*[capacity];
+        //iterate thru table, set each row to nullptr
+        for (int i = 0; i < capacity; i++)
+            table[i] = nullptr;
     }//end constructor
-
-    HashTable(const HashTable<T>& rhs);
-
-    HashTable(int numElements)
-    {
-        data = new HashNode<T,string>[numElements];
-        capacity = numElements;
-        currSize = 0;
-        for(int i = 0; i<capacity; i++)
-            data[i] = HashNode<T,string>();
-    }//end copy constructor
 
     ~HashTable()
     {
-        delete[] data;
+        clear();
     }//end destructor
+
+    vector<string>& getValuesForKey(T& w)
+    {
+        //make sure in lowercase
+        int hashKey = hashFunction(w);
+        HashNode<T,string>* checkMe = table[hashKey];
+        while (checkMe != nullptr)
+        {
+            if(checkMe->key == w)
+                return checkMe->values;
+
+            checkMe = checkMe->next;
+        }//end while
+    }//end getValuesForKey
+
+    T& get(WordObject w)
+    {
+        //make sure in lowercase
+        int hashKey = hashFunction(w);
+        HashNode<T,string>* checkMe = table[hashKey];
+        while (checkMe != nullptr)
+        {
+            if(checkMe->key == w)
+                return checkMe->key;
+
+            checkMe = checkMe->next;
+        }//end while
+    }//end get
+
+    bool contains(WordObject w)
+    {
+        //make sure in lowercase
+        int hashKey = hashFunction(w);
+        HashNode<T,string>* checkMe = table[hashKey];
+        while (checkMe != nullptr)
+        {
+            if (checkMe->key == w)
+                return true;
+
+            checkMe = checkMe->next;
+        }//end while
+        return false;
+    }//end contains
 
     void insert(WordObject w)
     {
-        add(w,w.getIDs().back());
+        insert(w,w.getIDs().back());
     }//end insert
 
-    void add(WordObject key, string id)
+    void insert(T& setKey, string& setValue)
     {
-        int hash = std::hash<string>().operator()(key.getWord());
-        int spot = hash%capacity;
-        if(!data[spot].room())
-            resize();
-        data[spot].addValue(key,id);
-        currSize++;
-    }//end add
+        int hashKey = hashFunction(setKey);
+//    cout << hashKey << ": " << setKey << ", " << setValue << endl;
+        HashNode<T,string>* checkMe = table[hashKey];
+        HashNode<T,string>* prev = nullptr;
+        //iterate thru table until find setKey
+        while (checkMe != nullptr && checkMe->key != setKey)
+        {
+            prev = checkMe;
+            checkMe = checkMe->next;
+        }//end while
+        //if reach end of table and don't find setKey
+        if (checkMe == nullptr)
+        {
+            //create new node
+            checkMe = new HashNode<T,string>(setKey, setValue);
+            //if first element in table
+            if (prev == nullptr)
+                table[hashKey] = checkMe;
+            else
+                prev->next = checkMe;
+        }//end if
+            //if find setKey
+        else
+            {
+            //add value to list of values for key
+            if (checkMe->key == setKey)
+                checkMe->values.push_back(setValue);
+            else
+                {
+                if (checkMe->next == nullptr)
+                    checkMe->next = new HashNode<T,string>(setKey, setValue);
+                else {
+                    while (checkMe->next != nullptr) {
+                        checkMe = checkMe->next;
+                        if (checkMe->key == setKey) {
+                            checkMe->values.push_back(setValue);
+                            break;
+                        }//end if
+                        if (checkMe->next == nullptr) {
+                            checkMe->next = new HashNode<T, string>(setKey, setValue);
+                            break;
+                        }//end if
+                    }//end while
+                }//end else
+            }//end else
+        }//end else
+    }//end insert
 
-    T& get(WordObject key)
+    void insert(T& setKey, vector<string>& setVector)
     {
-        int hash = std::hash<string>().operator()(key.getWord());
-        int spot = hash%capacity;
-        if(data[spot].contains(key))
-            return data[spot].getKey(key);
+        int hashKey = hashFunction(setKey);
+        HashNode<T,string>* checkMe = table[hashKey];
+        HashNode<T,string>* prev = nullptr;
+        //iterate thru table until find setKey
+        while (checkMe != nullptr && checkMe->key != setKey)
+        {
+            prev = checkMe;
+            checkMe = checkMe->next;
+        }//end while
+        //if reach end of table and don't find setKey
+        if (checkMe == nullptr)
+        {
+            //create new node
+            checkMe = new HashNode<T,string>(setKey, setVector);
+            //if first element in table
+            if (prev == nullptr)
+                table[hashKey] = checkMe;
+            else
+                prev->next = checkMe;
+        }//end if
+            //if find setKey
+        else
+            {
+            //add value to list of values for key
+            if (checkMe->key == setKey)
+                checkMe->values = setVector;
+            else
+                {
+                if (checkMe->next == nullptr)
+                    checkMe->next = new HashNode<T,string>(setKey, setVector);
+                else
+                    {
+                    while (checkMe->next != nullptr)
+                    {
+                        checkMe = checkMe->next;
+                        if (checkMe->key == setKey)
+                        {
+                            checkMe->values = setVector;
+                            break;
+                        }//end if
+                        if (checkMe->next == nullptr)
+                        {
+                            checkMe->next = new HashNode<T,string>(setKey, setVector);
+                            break;
+                        }//end if
+                    }//end while
+                }//end else
+            }//end else
+        }//end else
+    }//end insert
 
-        throw std::underflow_error("not in table");
-    }//end get
-
-    T& operator[](WordObject key)
+    void removeKey(T& removeKey)
     {
-        return get(key);
+        int hashKey = hashFunction(removeKey);
+        HashNode<T,string>* checkMe = table[hashKey];
+        HashNode<T,string>* prev = nullptr;
+        //iterate thru table until find setKey
+        while (checkMe != nullptr && checkMe->key != removeKey)
+        {
+            prev = checkMe;
+            checkMe = checkMe->next;
+        }//end while
+        //if reach end of table and don't find removeKey
+        if (checkMe == nullptr)
+            return;
+        else
+            {
+            //if removing first element of table
+            if (prev == nullptr)
+                table[hashKey] = checkMe->next;
+            else
+                prev->next = checkMe->next;
+
+            delete checkMe;
+        }//end else
+    }//end remove key
+
+    void clear()
+    {
+        if(table != nullptr)
+        {
+            //iterate thru table, delete elements
+            for (int i = 0; i < capacity; i++)
+            {
+                if (table[i] != nullptr)
+                {
+                    if (table[i]->next == nullptr)
+                        delete table[i];
+                    else
+                        {
+                        HashNode<T,string>* temp = table[i];
+                        HashNode<T,string>* prev = table[i];
+                        while (temp->next != nullptr)
+                        {
+                            temp = temp->next;
+                            delete prev;
+                            prev = temp;
+                        }//end while
+                        delete temp;
+                    }//end else
+                    table[i] = nullptr;
+                }//end if
+            }//end for
+        }//end if
+    }//end clear
+
+    void saveTable(ofstream& outputFile)
+    {
+        //Format:
+        //word
+        //id
+        //NEW_ELEMENT
+        //word
+        //id
+        for (int i = 0; i < capacity; i++) {
+            HashNode<T,string>* temp = table[i];
+            while (temp != nullptr) {
+                outputFile << temp->key << "\n";
+                int tempSize = temp->values.size();
+                for (int j = 0; j < tempSize; j++) {
+                    outputFile << temp->values[j] << "\n";
+                }
+                temp = temp->next;
+                outputFile << "NEW_ELEMENT\n";
+            }
+        }
+    }
+
+    vector<string>& operator[](T& index)
+    {
+        int hashKey = hashFunction(index);
+        if (table[hashKey] != nullptr)
+        {
+            if (table[hashKey]->key == index)
+                return table[hashKey]->values;
+            else {
+                HashNode<T,string>* temp = table[hashKey];
+                while (temp->next != nullptr)
+                {
+                    if (temp->key == index)
+                        return temp->values;
+                    temp = temp->next;
+                }//end while
+                //if matches no specific keys just return first value in list
+                return table[hashKey]->values;
+            }//end else
+        }//end if
     }//end operator[]
 
-    bool contains(WordObject key)
+private:
+//hashfuntion to deal w string keys
+    int hashFunction(WordObject& keyword)
     {
-        int hash = std::hash<string>().operator()(key.getWord());
-        int spot = hash%capacity;
-        return(data[spot].contains(key));
-    }//end contains
+        int sum = 0;
+        int length = keyword.getWord().length();
+        for (int i = 0; i < length; i++)
+            sum += int(keyword.getWord()[i]);
 
-    void resize()
+        if (sum > capacity)
+            sum %= capacity;
+
+        return sum;
+    }//end hashfunction
+
+    int hashFunction(int& keyNum)
     {
-        int newCap = capacity*4;
-        HashNode<T,string>* newDat = new HashNode<T,string>[newCap];
-        for(int i=0;i<newCap;i++)
-            newDat[i] = HashNode<T,string>();
+        return keyNum % capacity;
+    }//end hashfunction
 
-        for(int i = 0; i < capacity; i++)
-        {
-            vector<string> vals = data[i].getValues();
-            vector<T> keys = data[i].getKeys();
-            for(int j=0;j<data[i].getSize();j++)
-            {
-                int hash = std::hash<string>().operator()(keys[j].getWord());
-                int spot = hash%newCap;
-                if(!newDat[spot].room())
-                    resize();
-                data[spot].addValue(keys[i],vals[i]);
-            }//end for
-        }//end for
 
-        delete[] data;
-        data = newDat;
-        capacity = newCap;
-    }//end resize
-};//end class
+    HashNode<T,string>** table;
+    int capacity;
+    int size;
+};//end hashtable class
 
 #endif // HASHTABLE_H

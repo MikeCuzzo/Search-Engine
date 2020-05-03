@@ -33,6 +33,7 @@ CMakeFiles/SearchEngine.dir/parser.cpp.obj: ../porter2_stemmer-master/util/strin
 CMakeFiles/SearchEngine.dir/parser.cpp.obj: ../porter2_stemmer.h
 CMakeFiles/SearchEngine.dir/parser.cpp.obj: ../wordobject.h
 
+CMakeFiles/SearchEngine.dir/porter2_stemmer.cpp.obj: ../porter2_stemmer-master/util/hash.h
 CMakeFiles/SearchEngine.dir/porter2_stemmer.cpp.obj: ../porter2_stemmer-master/util/string_view.h
 CMakeFiles/SearchEngine.dir/porter2_stemmer.cpp.obj: ../porter2_stemmer.cpp
 CMakeFiles/SearchEngine.dir/porter2_stemmer.cpp.obj: ../porter2_stemmer.h

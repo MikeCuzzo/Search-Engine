@@ -27,13 +27,17 @@ AVLTree.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/AVLTree.h
 DataStructures.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/DataStructures.h
-functional
+vector
 -
-array
+iostream
+-
+fstream
+-
+iomanip
 -
 
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.cpp
-queryengine.h
+QueryEngine.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.h
 
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.h
@@ -123,7 +127,7 @@ iomanip
 -
 parser.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.h
-queryengine.h
+QueryEngine.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.h
 DataStructures.h
 C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/DataStructures.h
