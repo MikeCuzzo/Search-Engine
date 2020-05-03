@@ -68,7 +68,8 @@ void QueryEngine::run(string query,char* CLAPath)
                 transform(temp.begin(),temp.end(),temp.begin(),::tolower);
                 Porter2Stemmer::trim(temp);
                 Porter2Stemmer::stem(temp);
-                orWords.push_back(temp);
+                if(words->contains(temp))
+                    orWords.push_back(temp);
                 orList = orList.substr(orList.find_first_of(' ')+1,orList.length());
             }///end if not out of bounds
         }///end for
@@ -159,7 +160,10 @@ void QueryEngine::searchSingle()
         print(files);
     }///end if word exists
     else
+        {
         cout << "No results found" << endl;
+        cout << "Press 'Enter' again to search another term " << endl;
+    }//end else
 }///end searchSingle
 
 void QueryEngine::searchAnd()
@@ -173,6 +177,13 @@ void QueryEngine::searchAnd()
     {
         //imports the words
         WordObject currentWordObj(andWords[i]);
+        if(!words->contains(andWords[i]))
+        {
+            cout << "No results found" << endl;
+            cout << "Press 'Enter' again to search another term " << endl;
+            return;
+        }//end if
+
         currentWordObj = words->get(currentWordObj);
         for(int j=0;j<currentWordObj.getIDs().size();j++)
         {
@@ -331,7 +342,10 @@ void QueryEngine::searchAuthor()
     }///end if word exists
 
     else
+        {
         cout << "No results found" << endl;
+        cout << "Press 'Enter' again to search another term " << endl;
+    }//end else
 }//end searchAuthor
 
 void QueryEngine::print(vector<string> toPrint)
@@ -345,9 +359,12 @@ void QueryEngine::print(vector<string> toPrint)
     {
         //imports the words
         WordObject currentWordObj(notWords[i]);
-        currentWordObj = words->get(currentWordObj);
-        for(int j=0;j<currentWordObj.getIDs().size();j++)
-            notFiles.push_back(currentWordObj.getIDs()[j]);
+        if(words->contains(notWords[i]))
+        {
+            currentWordObj = words->get(currentWordObj);
+            for (int j = 0; j < currentWordObj.getIDs().size(); j++)
+                notFiles.push_back(currentWordObj.getIDs()[j]);
+        }//end if
     }///end for
 
     //removes notWord files
@@ -397,30 +414,28 @@ void QueryEngine::print(vector<string> toPrint)
         }///end for
     }//end else
 
-    string userIn;
-    while(true)
+    int userIn = -1;
+    cout << endl << "Which file would you like to look into? (enter '0' to go cancel)" << endl;
+    while(!(cin >> userIn) || !(userIn>=0 && userIn <=15))
     {
-        cout << endl << "Which file would you like to look into? (enter '0' to go back)" << endl;
-        cin >> userIn;
-        if(userIn == "0")
-            break;
-        if(stoi(userIn) < 0 || stoi(userIn) > 15)
-            cout << "Not a valid input" << endl;
-        else
-        {
-            int userNum = stoi(userIn);
-            printFile(toPrint[userNum-1]);
-        }//end else
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Invalid input" << endl << "Which file would you like to look into? (enter '0' to go cancel)" << endl;
     }//end while
+
+    if(userIn == 0)
+        return;
+
+    printFile(toPrint[userIn-1]);
 }///end print
 
-int QueryEngine::printFile(string file)
+void QueryEngine::printFile(string file)
 {
     currFile.open(fPath + "/" + file + ".json");
     if(!currFile.is_open())
     {
         cout << "Couldn't open file" << endl;
-        return -1;
+        return;
     }//end if
 
     int numPgs = 0;

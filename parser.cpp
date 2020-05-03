@@ -2,11 +2,13 @@
 
 int Parser::run(string filePath)
 {
-    int amtToParse;
-    while(!(amtToParse > 0 && amtToParse < 11997))
+    int amtToParse = -1;
+    cout << "How many files would you like to index? (max is 11,996)" << endl;
+    while(!(cin >> amtToParse) || !(amtToParse>0 && amtToParse <=11996))
     {
-        cout << "How many files would you like to index? (max is 11,996)" << endl;
-        cin >> amtToParse;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Invalid input" << endl << "How many files would you like to index? (max is 11,996)" << endl;
     }//end while
 
     //adds a slash at end of file path if needed
@@ -58,6 +60,9 @@ int Parser::run(string filePath)
         }///end while file still contains data
         currentFile.close();
         filesParsed++;
+
+        if((filesParsed%100)==0)
+            cout << filesParsed << " files parsed" << endl;
 
         if(filesParsed==amtToParse)
             break;

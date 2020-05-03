@@ -7,7 +7,6 @@
 #include <fstream>
 #include <iomanip>
 
-
 using namespace std;
 
 template<class T>
@@ -19,17 +18,17 @@ class HashTable : public DataStructures<T>
             {
     public:
         template <class U> friend class HashTable;
-       HashNode(K& setKey, string& setValue)
+       HashNode(K& k, string& v)
        {
-            key = setKey;
-            values.push_back(setValue);
+            key = k;
+            values.push_back(v);
             next = nullptr;
        }//end constructor
 
-        HashNode(K& setKey, vector<string>& setVector)
+        HashNode(K& k, vector<string>& v)
         {
-            key = setKey;
-            values = setVector;
+            key = k;
+            values = v;
             next = nullptr;
         }//end constructor
 
@@ -41,21 +40,13 @@ class HashTable : public DataStructures<T>
 
 public:
     template <class U, class Y> friend class HashNode;
-    void print()
-    {
-        if (table == nullptr)
-            cout << "Empty Table" << endl;
-        else
-            cout << "stuff in table" << endl;
-    }//end print
-
     HashTable()
     {
         capacity = 5000; //choose default table size
         size = 0;
         table = new HashNode<T,string>*[capacity];
         //iterate thru table, set each row to nullptr
-        for (int i = 0; i < capacity; i++)
+        for(int i=0;i<capacity;i++)
             table[i] = nullptr;
     }//end constructor
 
@@ -66,43 +57,40 @@ public:
 
     vector<string>& getValuesForKey(T& w)
     {
-        //make sure in lowercase
         int hashKey = hashFunction(w);
-        HashNode<T,string>* checkMe = table[hashKey];
-        while (checkMe != nullptr)
+        HashNode<T,string>* toCheck = table[hashKey];
+        while (toCheck != nullptr)
         {
-            if(checkMe->key == w)
-                return checkMe->values;
+            if(toCheck->key == w)
+                return toCheck->values;
 
-            checkMe = checkMe->next;
+            toCheck = toCheck->next;
         }//end while
     }//end getValuesForKey
 
     T& get(WordObject w)
     {
-        //make sure in lowercase
         int hashKey = hashFunction(w);
-        HashNode<T,string>* checkMe = table[hashKey];
-        while (checkMe != nullptr)
+        HashNode<T,string>* toCheck = table[hashKey];
+        while (toCheck != nullptr)
         {
-            if(checkMe->key == w)
-                return checkMe->key;
+            if(toCheck->key == w)
+                return toCheck->key;
 
-            checkMe = checkMe->next;
+            toCheck = toCheck->next;
         }//end while
     }//end get
 
     bool contains(WordObject w)
     {
-        //make sure in lowercase
         int hashKey = hashFunction(w);
-        HashNode<T,string>* checkMe = table[hashKey];
-        while (checkMe != nullptr)
+        HashNode<T,string>* toCheck = table[hashKey];
+        while (toCheck != nullptr)
         {
-            if (checkMe->key == w)
+            if (toCheck->key == w)
                 return true;
 
-            checkMe = checkMe->next;
+            toCheck = toCheck->next;
         }//end while
         return false;
     }//end contains
@@ -118,48 +106,51 @@ public:
         size++;
     }//end insert
 
-    void insert(T& setKey, string& setValue)
+    void insert(T& k, string& setValue)
     {
-        int hashKey = hashFunction(setKey);
-//    cout << hashKey << ": " << setKey << ", " << setValue << endl;
-        HashNode<T,string>* checkMe = table[hashKey];
+        int hashKey = hashFunction(k);
+        HashNode<T,string>* toCheck = table[hashKey];
         HashNode<T,string>* prev = nullptr;
-        //iterate thru table until find setKey
-        while (checkMe != nullptr && checkMe->key != setKey)
+        //iterate thru table until find k
+        while (toCheck != nullptr && toCheck->key != k)
         {
-            prev = checkMe;
-            checkMe = checkMe->next;
+            prev = toCheck;
+            toCheck = toCheck->next;
         }//end while
-        //if reach end of table and don't find setKey
-        if (checkMe == nullptr)
+
+        //if reach end of table and don't find k
+        if (toCheck == nullptr)
         {
             //create new node
-            checkMe = new HashNode<T,string>(setKey, setValue);
+            toCheck = new HashNode<T,string>(k, setValue);
             //if first element in table
             if (prev == nullptr)
-                table[hashKey] = checkMe;
+                table[hashKey] = toCheck;
             else
-                prev->next = checkMe;
+                prev->next = toCheck;
         }//end if
-            //if find setKey
+            //if find k
         else
             {
             //add value to list of values for key
-            if (checkMe->key == setKey)
-                checkMe->values.push_back(setValue);
+            if (toCheck->key == k)
+                toCheck->values.push_back(setValue);
             else
                 {
-                if (checkMe->next == nullptr)
-                    checkMe->next = new HashNode<T,string>(setKey, setValue);
+                if (toCheck->next == nullptr)
+                    toCheck->next = new HashNode<T,string>(k, setValue);
                 else {
-                    while (checkMe->next != nullptr) {
-                        checkMe = checkMe->next;
-                        if (checkMe->key == setKey) {
-                            checkMe->values.push_back(setValue);
+                    while(toCheck->next != nullptr)
+                    {
+                        toCheck = toCheck->next;
+                        if (toCheck->key == k)
+                        {
+                            toCheck->values.push_back(setValue);
                             break;
                         }//end if
-                        if (checkMe->next == nullptr) {
-                            checkMe->next = new HashNode<T, string>(setKey, setValue);
+                        if (toCheck->next == nullptr)
+                        {
+                            toCheck->next = new HashNode<T, string>(k, setValue);
                             break;
                         }//end if
                     }//end while
@@ -168,51 +159,51 @@ public:
         }//end else
     }//end insert
 
-    void insert(T& setKey, vector<string>& setVector)
+    void insert(T& k, vector<string>& v)
     {
-        int hashKey = hashFunction(setKey);
-        HashNode<T,string>* checkMe = table[hashKey];
+        int hashKey = hashFunction(k);
+        HashNode<T,string>* toCheck = table[hashKey];
         HashNode<T,string>* prev = nullptr;
-        //iterate thru table until find setKey
-        while (checkMe != nullptr && checkMe->key != setKey)
+        //iterate thru table until find k
+        while (toCheck != nullptr && toCheck->key != k)
         {
-            prev = checkMe;
-            checkMe = checkMe->next;
+            prev = toCheck;
+            toCheck = toCheck->next;
         }//end while
-        //if reach end of table and don't find setKey
-        if (checkMe == nullptr)
+        //if reach end of table and don't find k
+        if (toCheck == nullptr)
         {
             //create new node
-            checkMe = new HashNode<T,string>(setKey, setVector);
+            toCheck = new HashNode<T,string>(k, v);
             //if first element in table
             if (prev == nullptr)
-                table[hashKey] = checkMe;
+                table[hashKey] = toCheck;
             else
-                prev->next = checkMe;
+                prev->next = toCheck;
         }//end if
-            //if find setKey
+            //if find k
         else
             {
             //add value to list of values for key
-            if (checkMe->key == setKey)
-                checkMe->values = setVector;
+            if (toCheck->key == k)
+                toCheck->values = v;
             else
                 {
-                if (checkMe->next == nullptr)
-                    checkMe->next = new HashNode<T,string>(setKey, setVector);
+                if (toCheck->next == nullptr)
+                    toCheck->next = new HashNode<T,string>(k, v);
                 else
                     {
-                    while (checkMe->next != nullptr)
+                    while (toCheck->next != nullptr)
                     {
-                        checkMe = checkMe->next;
-                        if (checkMe->key == setKey)
+                        toCheck = toCheck->next;
+                        if (toCheck->key == k)
                         {
-                            checkMe->values = setVector;
+                            toCheck->values = v;
                             break;
                         }//end if
-                        if (checkMe->next == nullptr)
+                        if (toCheck->next == nullptr)
                         {
-                            checkMe->next = new HashNode<T,string>(setKey, setVector);
+                            toCheck->next = new HashNode<T,string>(k, v);
                             break;
                         }//end if
                     }//end while
@@ -224,26 +215,26 @@ public:
     void removeKey(T& removeKey)
     {
         int hashKey = hashFunction(removeKey);
-        HashNode<T,string>* checkMe = table[hashKey];
+        HashNode<T,string>* toCheck = table[hashKey];
         HashNode<T,string>* prev = nullptr;
-        //iterate thru table until find setKey
-        while (checkMe != nullptr && checkMe->key != removeKey)
+        //iterate thru table until find k
+        while (toCheck != nullptr && toCheck->key != removeKey)
         {
-            prev = checkMe;
-            checkMe = checkMe->next;
+            prev = toCheck;
+            toCheck = toCheck->next;
         }//end while
         //if reach end of table and don't find removeKey
-        if (checkMe == nullptr)
+        if (toCheck == nullptr)
             return;
         else
             {
             //if removing first element of table
             if (prev == nullptr)
-                table[hashKey] = checkMe->next;
+                table[hashKey] = toCheck->next;
             else
-                prev->next = checkMe->next;
+                prev->next = toCheck->next;
 
-            delete checkMe;
+            delete toCheck;
         }//end else
     }//end remove key
 
@@ -275,28 +266,6 @@ public:
             }//end for
         }//end if
     }//end clear
-
-    void saveTable(ofstream& outputFile)
-    {
-        //Format:
-        //word
-        //id
-        //NEW_ELEMENT
-        //word
-        //id
-        for (int i = 0; i < capacity; i++) {
-            HashNode<T,string>* temp = table[i];
-            while (temp != nullptr) {
-                outputFile << temp->key << "\n";
-                int tempSize = temp->values.size();
-                for (int j = 0; j < tempSize; j++) {
-                    outputFile << temp->values[j] << "\n";
-                }
-                temp = temp->next;
-                outputFile << "NEW_ELEMENT\n";
-            }
-        }
-    }
 
     vector<string>& operator[](T& index)
     {

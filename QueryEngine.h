@@ -14,14 +14,14 @@ using namespace std;
 class QueryEngine
 {
 public:
-    void run(string query,char* CLAPath);
-    void setDS(DataStructures<WordObject>* x);
+    void run(string,char*);
+    void setDS(DataStructures<WordObject>*);
     void searchSingle();
     void searchAnd();
     void searchOr();
     void searchAuthor();
-    void print(vector<string> toPrint);
-    int printFile(string file);
+    void print(vector<string>);
+    void printFile(string);
 private:
     string origQuery;
     vector<string> notWords;
