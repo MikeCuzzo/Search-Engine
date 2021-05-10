@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/SearchEngine.dir/src/main.cpp.o CMakeFiles/SearchEngine.dir/src/parser.cpp.o CMakeFiles/SearchEngine.dir/src/QueryEngine.cpp.o CMakeFiles/SearchEngine.dir/src/ui.cpp.o CMakeFiles/SearchEngine.dir/src/data-structures/wordobject.cpp.o CMakeFiles/SearchEngine.dir/external-libs/porter2_stemmer.cpp.o -o SearchEngine 
