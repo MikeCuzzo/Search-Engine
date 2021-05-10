@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.cpp" "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/CMakeFiles/SearchEngine.dir/QueryEngine.cpp.obj"
-  "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/main.cpp" "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/CMakeFiles/SearchEngine.dir/main.cpp.obj"
-  "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.cpp" "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/CMakeFiles/SearchEngine.dir/parser.cpp.obj"
-  "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer.cpp" "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/CMakeFiles/SearchEngine.dir/porter2_stemmer.cpp.obj"
-  "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/ui.cpp" "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/CMakeFiles/SearchEngine.dir/ui.cpp.obj"
-  "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/wordobject.cpp" "C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/CMakeFiles/SearchEngine.dir/wordobject.cpp.obj"
+  "/home/mcuzzo/Desktop/Search-Engine/external-libs/porter2_stemmer.cpp" "/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/CMakeFiles/SearchEngine.dir/external-libs/porter2_stemmer.cpp.o"
+  "/home/mcuzzo/Desktop/Search-Engine/src/QueryEngine.cpp" "/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/CMakeFiles/SearchEngine.dir/src/QueryEngine.cpp.o"
+  "/home/mcuzzo/Desktop/Search-Engine/src/data-structures/wordobject.cpp" "/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/CMakeFiles/SearchEngine.dir/src/data-structures/wordobject.cpp.o"
+  "/home/mcuzzo/Desktop/Search-Engine/src/main.cpp" "/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/CMakeFiles/SearchEngine.dir/src/main.cpp.o"
+  "/home/mcuzzo/Desktop/Search-Engine/src/parser.cpp" "/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/CMakeFiles/SearchEngine.dir/src/parser.cpp.o"
+  "/home/mcuzzo/Desktop/Search-Engine/src/ui.cpp" "/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/CMakeFiles/SearchEngine.dir/src/ui.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

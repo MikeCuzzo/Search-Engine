@@ -8,121 +8,123 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug"/>
+				<Option working_dir="/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="SearchEngine">
-				<Option output="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/SearchEngine.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 SearchEngine"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="SearchEngine/fast">
-				<Option output="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/SearchEngine.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 SearchEngine/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug"/>
+				<Option working_dir="/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SearchEngine">
+				<Option output="/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/SearchEngine" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 SearchEngine"/>
+					<CompileFile command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SearchEngine/fast">
+				<Option output="/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/SearchEngine" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 SearchEngine/fast"/>
+					<CompileFile command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j3 -f &quot;/home/mcuzzo/Desktop/Search-Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/AVLTree.h">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/external-libs/porter2_stemmer.cpp">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/DataStructures.h">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/external-libs/porter2_stemmer.h">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/HashTable.h">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/QueryEngine.cpp">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.cpp">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/QueryEngine.h">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/QueryEngine.h">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/data-structures/AVLTree.h">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/main.cpp">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/data-structures/DataStructures.h">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.cpp">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/data-structures/HashTable.h">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/parser.h">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/data-structures/wordobject.cpp">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer.cpp">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/data-structures/wordobject.h">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/porter2_stemmer.h">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/main.cpp">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/ui.cpp">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/parser.cpp">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/ui.h">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/parser.h">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/wordobject.cpp">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/ui.cpp">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/wordobject.h">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/src/ui.h">
 			<Option target="SearchEngine"/>
 		</Unit>
-		<Unit filename="C:/Users/Mcuzz/OneDrive/Documents/GitHub/CS2341-SearchEngine-MikeCuzzo/CMakeLists.txt">
+		<Unit filename="/home/mcuzzo/Desktop/Search-Engine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

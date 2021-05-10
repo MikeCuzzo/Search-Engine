@@ -1,14 +1,12 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SearchEngine.dir/QueryEngine.cpp.obj"
-  "CMakeFiles/SearchEngine.dir/main.cpp.obj"
-  "CMakeFiles/SearchEngine.dir/parser.cpp.obj"
-  "CMakeFiles/SearchEngine.dir/porter2_stemmer.cpp.obj"
-  "CMakeFiles/SearchEngine.dir/ui.cpp.obj"
-  "CMakeFiles/SearchEngine.dir/wordobject.cpp.obj"
-  "SearchEngine.exe"
-  "SearchEngine.exe.manifest"
+  "CMakeFiles/SearchEngine.dir/external-libs/porter2_stemmer.cpp.o"
+  "CMakeFiles/SearchEngine.dir/src/QueryEngine.cpp.o"
+  "CMakeFiles/SearchEngine.dir/src/data-structures/wordobject.cpp.o"
+  "CMakeFiles/SearchEngine.dir/src/main.cpp.o"
+  "CMakeFiles/SearchEngine.dir/src/parser.cpp.o"
+  "CMakeFiles/SearchEngine.dir/src/ui.cpp.o"
+  "SearchEngine"
   "SearchEngine.pdb"
-  "libSearchEngine.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
